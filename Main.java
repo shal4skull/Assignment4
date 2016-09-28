@@ -7,13 +7,19 @@ public class Main {
 		
 	   BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
-        Dice d1 = new Dice();
+        /*Dice d1 = new Dice();
         Dice d2 = new Dice();
-        Dice d3 = new Dice();
-
+        Dice d3 = new Dice();*/
+	   
+	   //Khue Dinh Added 
+	   	Dice d1, d2, d3;
+	    List<DiceValue> cdv;
+	    Game game;
+	    //Khue Dinh Added
+	    
         Player player = new Player("Fred", 100,18);
-        Game game = new Game(d1, d2, d3);
-        List<DiceValue> cdv = game.getDiceValues();
+       /* Game game = new Game(d1, d2, d3);
+        List<DiceValue> cdv = game.getDiceValues();*/
 
         int totalWins = 0;
         int totalLosses = 0;
@@ -46,6 +52,13 @@ public class Main {
                 	System.out.printf("Turn %d: %s bet %d on %s\n",
                 			turn, player.getName(), bet, pick); 
                 	
+                	//Khue Dinh Added
+                	d1 = new Dice();
+                    d2 = new Dice();
+                    d3 = new Dice();
+                    game = new Game(d1, d2, d3);
+                    //Khue Dinh Added
+                    
                 	int winnings = game.playRound(player, pick, bet);
                     cdv = game.getDiceValues();
                     
