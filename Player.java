@@ -3,20 +3,17 @@ public class Player {
 	private String name;
 	private int balance;
 	private int limit;
-	private int age;
 	
-	public Player(String name, int balance, int age) {
+	public Player(String name, int balance) {
 		if (name == null || name .isEmpty()) throw new IllegalArgumentException("Name cannot be null or empty");
 		if (balance < 0) throw new IllegalArgumentException("Balance cannot be negative");
-		if (age < 18) throw new IllegalArgumentException("Player's age can not be less than 18");
 		this.name = name;
 		this.balance = balance;
 		this.limit = 0;
-		this.age = age;
 	}
 		
 	public String getName() { return name; }
-	public int getBalance() { return balance; }
+	public int getBalance() { return this.balance; }
 	public int getLimit() { return limit; }
 	
 	public void setLimit(int limit) {
@@ -40,8 +37,12 @@ public class Player {
 	}
 	
 	public void receiveWinnings(int winnings) {
-		if (winnings < 0) throw new IllegalArgumentException("Winnings cannot be negative.");
-		balance = balance + winnings;		
+		if (winnings < 0) 
+			{
+			throw new IllegalArgumentException("Winnings cannot be negative.");
+			}
+		balance = balance + winnings + 5;
+		//System.out.println(balance);
 	}
 	
 	public String toString() {
